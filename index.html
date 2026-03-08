@@ -1,5 +1,350 @@
 <!DOCTYPE html>
-<html>
-<head><title>MYAF Software</title></head>
-<body><h1>MYAF Software</h1><p>Developer page</p></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYAF Software — Android Apps</title>
+    <meta name="description" content="MYAF Software — Premium Android applications. Smart Links & Notes Archiver and Real Widget Calculator.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-card: #12122a;
+            --bg-card-hover: #1a1a3a;
+            --text-primary: #f0f0ff;
+            --text-secondary: #9999bb;
+            --accent-blue: #4e8cff;
+            --accent-teal: #00d4aa;
+            --accent-orange: #ff6b4a;
+            --accent-purple: #9b6bff;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --glow-blue: rgba(78, 140, 255, 0.15);
+            --glow-teal: rgba(0, 212, 170, 0.15);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        /* Background ambient effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 20%, rgba(78, 140, 255, 0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(0, 212, 170, 0.04) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 50%, rgba(155, 107, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 0 20px;
+        }
+        .logo-text {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+        }
+        header h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 50%, var(--accent-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.1s forwards;
+        }
+        header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+        /* Apps Section */
+        .apps-section {
+            padding: 40px 0 80px;
+        }
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+        }
+        /* App Card */
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+        .app-card:nth-child(2) {
+            animation-delay: 0.45s;
+        }
+        .app-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-6px);
+        }
+        .app-card:first-child:hover {
+            box-shadow: 0 20px 60px -12px var(--glow-blue);
+        }
+        .app-card:last-child:hover {
+            box-shadow: 0 20px 60px -12px var(--glow-teal);
+        }
+        .card-image {
+            width: 100%;
+            object-fit: contain;
+            display: block;
+            background: #0d0d20;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .card-body {
+            padding: 28px;
+        }
+        .card-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+        .badge-blue {
+            background: rgba(78, 140, 255, 0.12);
+            color: var(--accent-blue);
+        }
+        .badge-teal {
+            background: rgba(0, 212, 170, 0.12);
+            color: var(--accent-teal);
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .card-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .features-list {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+        .features-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .features-list li::before {
+            content: '✦';
+            font-size: 10px;
+            color: var(--accent-blue);
+            flex-shrink: 0;
+        }
+        .app-card:last-child .features-list li::before {
+            color: var(--accent-teal);
+        }
+        /* Play Store Button */
+        .play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #1a1a3a 0%, #252550 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+        .play-btn:hover {
+            background: linear-gradient(135deg, #252550 0%, #303070 100%);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: scale(1.02);
+        }
+        .play-btn svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        .play-btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .play-btn-label {
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .play-btn-store {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0 60px;
+            border-top: 1px solid var(--border-color);
+        }
+        footer p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive */
+        @media (max-width: 480px) {
+            header {
+                padding: 60px 0 16px;
+            }
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            .card-body {
+                padding: 20px;
+            }
+            .card-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-text">MYAF Software</div>
+            <h1>Crafting Useful<br>Android Apps</h1>
+            <p>Simple, privacy-focused tools designed to make your daily life easier.</p>
+        </header>
+        <section class="apps-section">
+            <div class="apps-grid">
+                <!-- Smart Links & Notes Archiver -->
+                <div class="app-card">
+                    <img
+                        class="card-image"
+                        src="https://play-lh.googleusercontent.com/qZQsENWOaB6kOzCRS8cce_7-TyUAf-p03xn0741KaPJiSxnZ67Pyr2QAYqx2icQJGwd1ADaFB-Woqp-RVNRF=w832-h470-rw"
+                        alt="Smart Links & Notes Archiver feature graphic"
+                    >
+                    <div class="card-body">
+                        <span class="card-badge badge-blue">Productivity</span>
+                        <h2 class="card-title">Smart Links & Notes Archiver</h2>
+                        <p class="card-description">
+                            Save and bookmark links with rich previews, create and organize notes with tags, and securely back up your entire archive.
+                        </p>
+                        <ul class="features-list">
+                            <li>Auto-fetched link previews with thumbnails</li>
+                            <li>Organize with tags & full-text search</li>
+                            <li>Export & import .maa backup files</li>
+                            <li>Privacy-first — all data stored locally</li>
+                        </ul>
+                        <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.archiveassistant.app" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                            <span class="play-btn-text">
+                                <span class="play-btn-label">Get it on</span>
+                                <span class="play-btn-store">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Real Widget Calculator -->
+                <div class="app-card">
+                    <img
+                        class="card-image"
+                        src="https://play-lh.googleusercontent.com/Z_hZoNYiCBj0iBVaN55Vdu1A919GfPsuPsS-dFKGE8-yXWgqGADKndW9XOeopB9XQ_UdKNsZOnJZTsqGp0kMeg=w832-h470-rw"
+                        alt="Real Widget Calculator feature graphic"
+                    >
+                    <div class="card-body">
+                        <span class="card-badge badge-teal">Utility</span>
+                        <h2 class="card-title">Real Widget Calculator</h2>
+                        <p class="card-description">
+                            A true home screen calculator widget. Perform calculations directly on your home screen — no app launch needed.
+                        </p>
+                        <ul class="features-list">
+                            <li>True widget — calculate without opening an app</li>
+                            <li>Calculation history with last 5 results</li>
+                            <li>Light & dark theme options</li>
+                            <li>One-time purchase, no subscriptions</li>
+                        </ul>
+                        <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.realcalculator.app" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                            <span class="play-btn-text">
+                                <span class="play-btn-label">Get it on</span>
+                                <span class="play-btn-store">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2026 MYAF Software &middot; <a href="mailto:myafsoftware@gmail.com">myafsoftware@gmail.com</a></p>
+        </footer>
+    </div>
+</body>
 </html>
