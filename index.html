@@ -27,6 +27,7 @@
             --border-color: rgba(255, 255, 255, 0.06);
             --glow-blue: rgba(78, 140, 255, 0.15);
             --glow-teal: rgba(0, 212, 170, 0.15);
+            --glow-purple: rgba(155, 107, 255, 0.15);
         }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -115,17 +116,24 @@
         .app-card:nth-child(2) {
             animation-delay: 0.45s;
         }
+        .app-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
         .app-card:hover {
             background: var(--bg-card-hover);
             border-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-6px);
         }
-        .app-card:first-child:hover {
+        .app-card.app-purple:hover {
+            box-shadow: 0 20px 60px -12px var(--glow-purple);
+        }
+        .app-card.app-blue:hover {
             box-shadow: 0 20px 60px -12px var(--glow-blue);
         }
-        .app-card:last-child:hover {
+        .app-card.app-teal:hover {
             box-shadow: 0 20px 60px -12px var(--glow-teal);
         }
+        
         .card-image {
             width: 100%;
             object-fit: contain;
@@ -145,6 +153,10 @@
             padding: 5px 12px;
             border-radius: 50px;
             margin-bottom: 16px;
+        }
+        .badge-purple {
+            background: rgba(155, 107, 255, 0.12);
+            color: var(--accent-purple);
         }
         .badge-blue {
             background: rgba(78, 140, 255, 0.12);
@@ -181,10 +193,15 @@
         .features-list li::before {
             content: '✦';
             font-size: 10px;
-            color: var(--accent-blue);
             flex-shrink: 0;
         }
-        .app-card:last-child .features-list li::before {
+        .app-card.app-purple .features-list li::before {
+            color: var(--accent-purple);
+        }
+        .app-card.app-blue .features-list li::before {
+            color: var(--accent-blue);
+        }
+        .app-card.app-teal .features-list li::before {
             color: var(--accent-teal);
         }
         /* Play Store Button */
@@ -284,8 +301,38 @@
         </header>
         <section class="apps-section">
             <div class="apps-grid">
+                
+                <!-- My Lecture Notes PDF Scanner -->
+                <div class="app-card app-purple">
+                    <img
+                        class="card-image"
+                        src="https://play-lh.googleusercontent.com/7EC2Ur8vuZ7BN8E9v81dxh3mHDqmBdw4d25pNAijJsUIs6vS8qHxs8ar1FzVcG9ZUOaBnUvXj_O5hBVsa9Kjng=w416-h235-rw"
+                        alt="My Lecture Notes PDF Scanner feature graphic"
+                    >
+                    <div class="card-body">
+                        <span class="card-badge badge-purple">Education</span>
+                        <h2 class="card-title">My Lecture Notes PDF Scanner</h2>
+                        <p class="card-description">
+                            Organize your courses, scan documents natively, and manage all your lecture notes in one convenient place.
+                        </p>
+                        <ul class="features-list">
+                            <li>Built-in PDF document scanner</li>
+                            <li>Organize notes by course and term</li>
+                            <li>Integrated PDF viewer</li>
+                            <li>Privacy-first — all data stored locally</li>
+                        </ul>
+                        <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.lecturenotes.app" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                            <span class="play-btn-text">
+                                <span class="play-btn-label">Get it on</span>
+                                <span class="play-btn-store">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Smart Links & Notes Archiver -->
-                <div class="app-card">
+                <div class="app-card app-blue">
                     <img
                         class="card-image"
                         src="https://play-lh.googleusercontent.com/qZQsENWOaB6kOzCRS8cce_7-TyUAf-p03xn0741KaPJiSxnZ67Pyr2QAYqx2icQJGwd1ADaFB-Woqp-RVNRF=w832-h470-rw"
@@ -312,8 +359,9 @@
                         </a>
                     </div>
                 </div>
+
                 <!-- Real Widget Calculator -->
-                <div class="app-card">
+                <div class="app-card app-teal">
                     <img
                         class="card-image"
                         src="https://play-lh.googleusercontent.com/Z_hZoNYiCBj0iBVaN55Vdu1A919GfPsuPsS-dFKGE8-yXWgqGADKndW9XOeopB9XQ_UdKNsZOnJZTsqGp0kMeg=w832-h470-rw"
