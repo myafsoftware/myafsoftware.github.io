@@ -27,6 +27,7 @@
             --border-color: rgba(255, 255, 255, 0.06);
             --glow-blue: rgba(78, 140, 255, 0.15);
             --glow-teal: rgba(0, 212, 170, 0.15);
+            --glow-orange: rgba(255, 107, 74, 0.15);
             --glow-purple: rgba(155, 107, 255, 0.15);
         }
         body {
@@ -119,6 +120,9 @@
         .app-card:nth-child(3) {
             animation-delay: 0.6s;
         }
+        .app-card:nth-child(4) {
+            animation-delay: 0.75s;
+        }
         .app-card:hover {
             background: var(--bg-card-hover);
             border-color: rgba(255, 255, 255, 0.1);
@@ -132,6 +136,9 @@
         }
         .app-card.app-teal:hover {
             box-shadow: 0 20px 60px -12px var(--glow-teal);
+        }
+        .app-card.app-orange:hover {
+            box-shadow: 0 20px 60px -12px var(--glow-orange);
         }
         
         .card-image {
@@ -165,6 +172,10 @@
         .badge-teal {
             background: rgba(0, 212, 170, 0.12);
             color: var(--accent-teal);
+        }
+        .badge-orange {
+            background: rgba(255, 107, 74, 0.12);
+            color: var(--accent-orange);
         }
         .card-title {
             font-size: 22px;
@@ -203,6 +214,9 @@
         }
         .app-card.app-teal .features-list li::before {
             color: var(--accent-teal);
+        }
+        .app-card.app-orange .features-list li::before {
+            color: var(--accent-orange);
         }
         /* Play Store Button */
         .play-btn {
@@ -302,6 +316,35 @@
         <section class="apps-section">
             <div class="apps-grid">
                 
+                <!-- GroupAlertSOS -->
+                <div class="app-card app-orange">
+                    <img
+                        class="card-image"
+                        src="https://lh3.googleusercontent.com/kiUwodVWkZNMqY016XbtmtQ4I6L56gh8HbO9oAs0cbZn53fCHAKPqNM2cLll4jyjdbn4nATATlDytJmFtsM0Ow"
+                        alt="GroupAlertSOS feature graphic"
+                    >
+                    <div class="card-body">
+                        <span class="card-badge badge-orange">Safety & Utility</span>
+                        <h2 class="card-title">GroupAlertSOS</h2>
+                        <p class="card-description">
+                            Send immediate SOS alerts to your predefined groups in emergency situations with location sharing.
+                        </p>
+                        <ul class="features-list">
+                            <li>Instant SOS notifications to groups</li>
+                            <li>Automated location tracking & sharing</li>
+                            <li>Quick access widget and shortcuts</li>
+                            <li>Reliable delivery in critical situations</li>
+                        </ul>
+                        <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.groupalertsos.app" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                            <span class="play-btn-text">
+                                <span class="play-btn-label">Get it on</span>
+                                <span class="play-btn-store">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- My Lecture Notes PDF Scanner -->
                 <div class="app-card app-purple">
                     <img
