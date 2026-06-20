@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MYAF Software — Android Apps</title>
-    <meta name="description" content="MYAF Software — Premium Android applications. Smart Links & Notes Archiver and Real Widget Calculator.">
+    <meta name="description" content="MYAF Software — Premium Android applications. PDF Scanner Reader Archiver, Smart Links & Notes Archiver, Real Widget Calculator, and more.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,11 +24,13 @@
             --accent-teal: #00d4aa;
             --accent-orange: #ff6b4a;
             --accent-purple: #9b6bff;
+            --accent-red: #ff4e6a;
             --border-color: rgba(255, 255, 255, 0.06);
             --glow-blue: rgba(78, 140, 255, 0.15);
             --glow-teal: rgba(0, 212, 170, 0.15);
             --glow-orange: rgba(255, 107, 74, 0.15);
             --glow-purple: rgba(155, 107, 255, 0.15);
+            --glow-red: rgba(255, 78, 106, 0.15);
         }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -123,10 +125,16 @@
         .app-card:nth-child(4) {
             animation-delay: 0.75s;
         }
+        .app-card:nth-child(5) {
+            animation-delay: 0.9s;
+        }
         .app-card:hover {
             background: var(--bg-card-hover);
             border-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-6px);
+        }
+        .app-card.app-red:hover {
+            box-shadow: 0 20px 60px -12px var(--glow-red);
         }
         .app-card.app-purple:hover {
             box-shadow: 0 20px 60px -12px var(--glow-purple);
@@ -160,6 +168,10 @@
             padding: 5px 12px;
             border-radius: 50px;
             margin-bottom: 16px;
+        }
+        .badge-red {
+            background: rgba(255, 78, 106, 0.12);
+            color: var(--accent-red);
         }
         .badge-purple {
             background: rgba(155, 107, 255, 0.12);
@@ -205,6 +217,9 @@
             content: '✦';
             font-size: 10px;
             flex-shrink: 0;
+        }
+        .app-card.app-red .features-list li::before {
+            color: var(--accent-red);
         }
         .app-card.app-purple .features-list li::before {
             color: var(--accent-purple);
@@ -315,7 +330,36 @@
         </header>
         <section class="apps-section">
             <div class="apps-grid">
-                
+
+                <!-- PDF Scanner Reader Archiver -->
+                <div class="app-card app-red">
+                    <img
+                        class="card-image"
+                        src="https://lh3.googleusercontent.com/bV37EIFb8X2w3VQxViyF2Kh1AuOax82N2wkOe4tcHV6qy9CKsEbd1VIMQqIVOvxDWYA2DN8hwSMa_bed5yekBcE"
+                        alt="PDF Scanner Reader Archiver feature graphic"
+                    >
+                    <div class="card-body">
+                        <span class="card-badge badge-red">Productivity</span>
+                        <h2 class="card-title">PDF Scanner Reader Archiver</h2>
+                        <p class="card-description">
+                            Scan documents to PDF, read and annotate PDF files, and archive everything in one powerful, privacy-focused app.
+                        </p>
+                        <ul class="features-list">
+                            <li>High-quality document scanning to PDF</li>
+                            <li>Built-in PDF reader with smooth navigation</li>
+                            <li>Organize & archive all your documents</li>
+                            <li>Privacy-first — all data stored locally</li>
+                        </ul>
+                        <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.pdfreadscanarchive.app" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                            <span class="play-btn-text">
+                                <span class="play-btn-label">Get it on</span>
+                                <span class="play-btn-store">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Group Alert SOS -->
                 <div class="app-card app-orange">
                     <img
