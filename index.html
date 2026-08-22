@@ -22,12 +22,14 @@
             --text-secondary: #9999bb;
             --accent-blue: #4e8cff;
             --accent-teal: #00d4aa;
+            --accent-green: #29c47e;
             --accent-orange: #ff6b4a;
             --accent-purple: #9b6bff;
             --accent-red: #ff4e6a;
             --border-color: rgba(255, 255, 255, 0.06);
             --glow-blue: rgba(78, 140, 255, 0.15);
             --glow-teal: rgba(0, 212, 170, 0.15);
+            --glow-green: rgba(41, 196, 126, 0.15);
             --glow-orange: rgba(255, 107, 74, 0.15);
             --glow-purple: rgba(155, 107, 255, 0.15);
             --glow-red: rgba(255, 78, 106, 0.15);
@@ -128,10 +130,16 @@
         .app-card:nth-child(5) {
             animation-delay: 0.9s;
         }
+        .app-card:nth-child(6) {
+            animation-delay: 1.05s;
+        }
         .app-card:hover {
             background: var(--bg-card-hover);
             border-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-6px);
+        }
+        .app-card.app-green:hover {
+            box-shadow: 0 20px 60px -12px var(--glow-green);
         }
         .app-card.app-red:hover {
             box-shadow: 0 20px 60px -12px var(--glow-red);
@@ -168,6 +176,10 @@
             padding: 5px 12px;
             border-radius: 50px;
             margin-bottom: 16px;
+        }
+        .badge-green {
+            background: rgba(41, 196, 126, 0.12);
+            color: var(--accent-green);
         }
         .badge-red {
             background: rgba(255, 78, 106, 0.12);
@@ -217,6 +229,9 @@
             content: '✦';
             font-size: 10px;
             flex-shrink: 0;
+        }
+        .app-card.app-green .features-list li::before {
+            color: var(--accent-green);
         }
         .app-card.app-red .features-list li::before {
             color: var(--accent-red);
@@ -330,6 +345,35 @@
         </header>
         <section class="apps-section">
             <div class="apps-grid">
+
+                <!-- Natlang Learner -->
+                <div class="app-card app-green">
+                    <img
+                        class="card-image"
+                        src="https://lh3.googleusercontent.com/wInL1ZmEv635WrwyybNFw1Kon__LAHNbVlNaIZJ-sKE9WrCNtNIwCnV40cbcY-7s6lxzu1M7PNfJXBXIvcz_Eg"
+                        alt="Natlang Learner feature graphic"
+                    >
+                    <div class="card-body">
+                        <span class="card-badge badge-green">Education</span>
+                        <h2 class="card-title">Natlang Learner</h2>
+                        <p class="card-description">
+                            Master new languages naturally with immersive exercises, smart vocabulary tracking, and offline practice.
+                        </p>
+                        <ul class="features-list">
+                            <li>Interactive language exercises</li>
+                            <li>Smart vocabulary tracking</li>
+                            <li>Personalized learning paths</li>
+                            <li>Offline mode support</li>
+                        </ul>
+                        <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.natlanglearner.app" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                            <span class="play-btn-text">
+                                <span class="play-btn-label">Get it on</span>
+                                <span class="play-btn-store">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
 
                 <!-- PDF Scanner Reader Archiver -->
                 <div class="app-card app-red">
