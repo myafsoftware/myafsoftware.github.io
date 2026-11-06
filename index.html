@@ -1,10 +1,19 @@
+Searched "com.callflow.app" OR "CallFlow" site:play.google.com
+Analyzed fetch_txt.json:L1
+Used MCP tool: fetch/fetch_txt
+
+Google Play mağaza sayfasındaki (**Call Forwarder to WA** - `com.callflow.app`) güncel başlık, açıklama ve özellik bilgilerini kullanarak uygulamayı **ilk sıraya** ekledim. Ayrıca 7. kart için CSS animasyon gecikmesini (`nth-child(7)`) de ekledim.
+
+İşte güncellenmiş tam HTML kodu:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MYAF Software — Android Apps</title>
-    <meta name="description" content="MYAF Software — Premium Android applications. PDF Scanner Reader Archiver, Smart Links & Notes Archiver, Real Widget Calculator, and more.">
+    <meta name="description" content="MYAF Software — Premium Android applications. Call Forwarder to WA, PDF Scanner Reader Archiver, Smart Links & Notes Archiver, Real Widget Calculator, and more.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -132,6 +141,9 @@
         }
         .app-card:nth-child(6) {
             animation-delay: 1.05s;
+        }
+        .app-card:nth-child(7) {
+            animation-delay: 1.2s;
         }
         .app-card:hover {
             background: var(--bg-card-hover);
@@ -346,6 +358,34 @@
         <section class="apps-section">
             <div class="apps-grid">
 
+                <!-- Call Forwarder to WA (CallFlow) -->
+                <div class="app-card app-teal">
+                    <img
+                        class="card-image"
+                        src="https://play-lh.googleusercontent.com/5WaXomVZjk0Iz0yGUZOsuUyMUc_9fA1jTNElf6I3T87GFaqmB0Qqi0rzsLFwc09WGvx7JF0ZPR3R2_YPWrOt=w416-h235-rw"
+                        alt="Call Forwarder to WA feature graphic"
+                    >
+                    <div class="card-body">
+                        <span class="card-badge badge-teal">Communication & Utility</span>
+                        <h2 class="card-title">Call Forwarder to WA</h2>
+                        <p class="card-description">
+                            View incoming, outgoing, and missed calls as well as SMS notifications on an interactive home screen widget — and forward them directly to WA or WA Business with a single tap.
+                        </p>
+                        <ul class="features-list">
+                            <li>Instant home screen widget for recent calls & SMS</li>
+                            <li>One-tap direct chat on WhatsApp / WhatsApp Business without saving numbers to contacts</li>
+                            <li>Smart filters (All, Unsaved, Saved)</li>
+                              </ul>
+                        <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.callflow.app" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                            <span class="play-btn-text">
+                                <span class="play-btn-label">Get it on</span>
+                                <span class="play-btn-store">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Natural Language Trainer -->
                 <div class="app-card app-green">
                     <img
@@ -528,3 +568,4 @@
     </div>
 </body>
 </html>
+```
